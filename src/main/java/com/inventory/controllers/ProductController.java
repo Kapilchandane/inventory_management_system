@@ -1,5 +1,7 @@
 package com.inventory.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +22,12 @@ public class ProductController {
 		String pro = service.addProduct(product);
 		
 		return "successfully product added";
+		
+	}
+	@GetMapping("/get-all-products")
+	public List<Product> getAllProducts() {
+		List<Product> allProducts = service.getAllProducts();
+		return allProducts;
 		
 	}
 
